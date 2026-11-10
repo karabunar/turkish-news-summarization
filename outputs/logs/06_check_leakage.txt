@@ -1,0 +1,18 @@
+=== Article text: test (273) vs train (4907) ===
+exact: 1/273
+same_first_200_chars: 2/273
+near_duplicate: 35/273
+=== Reference summaries: test vs train ===
+exact: 10/273
+same_first_200_chars: 3/273
+near_duplicate: 1/273
+flagged test sample_ids (articles): ['de616b721b69095e', 'e2b2f1fa33a8b406', 'b13c3b54f8d3b5c6', 'f3297bb8af9bebe7', 'd7fe5e81f00ba94a', '0d6b5c9d97251338', 'b3a97512967f339c', '4cfea766698b00c7', 'fb7319d4464b7333', '4480328724cbe86b', '495e21dcfc73bdda', 'a90558fccfc7ff65', 'c971153d0fc3e497', '255a8d78b12ce8ed', 'fb3287a7fb5fe03c', '59724230648db4d3', 'c6b0d0386952e439', 'c1b092ab38fa5ab2', '6597e36f8bd5cbe0', '429d3fdfd5015613', 'd33a630668fa6232', 'afeb6d7cf7e41150', 'ff2a1641b3542b98', '812080ca470ee9b6', '1bbcc426d88cab79', 'fa01820ce7043f77', 'a66683737c44e1e1', '1233e6cdf91e38b8', 'ef654a91a1e13db1', '9ef044d0abff1465']
+
+[0.98] TEST  "Türkiye Sigorta Basketbol Süper Ligi'nde 14. haftanın açılış maçında Karşıyaka, normal süresi 92-92 tamamlanan mücadelede TOFAŞ'ı uzatma sonunda 107-1"
+       TRAIN "Güncelleme Tarihi: Türkiye Sigorta Basketbol Süper Ligi'nde 14. haftanın açılış maçında Karşıyaka, normal süresi 92-92 tamamlanan mücadelede TOFAŞ'ı u"
+
+[0.95] TEST  'Güncelleme Tarihi: Geçen yıl jeopolitik gelişmeler ve ekonomik veriler dolar üzerinde dalgalanmalara yol açarken, altın, gümüş ve bakır gibi değerli m'
+       TRAIN "ABD Başkanı Donald Trump'ın gümrük vergisi tarifeleri, dünyanın birçok ülkesinde artan ulusal borçlarla teknoloji ve yapay zeka şirketlerine ilişkin a"
+
+[0.93] TEST  "02.01.2026 - 11:23 | Son Güncellenme: AA Almanya'nın Kuzey Ren-Vestfalya eyaletinin Gelsenkirchen kentindeki Sparkasse bankasında soyulan 3 bin 300 ka"
+       TRAIN "Güncelleme Tarihi: Almanya'nın Gelsenkirchen kentinde soyulan Sparkasse bankasının Türk mağdurları Ünal Mete, Cihat Erhan Bostancı, Güngör Kalın ve Em"

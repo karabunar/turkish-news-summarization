@@ -1,0 +1,15 @@
+/opt/conda/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[INFO] Metrics written to outputs/metrics_recomputed.csv
+| Condition       | ROUGE-1 | ROUGE-2 | ROUGE-L |
+|-----------------|---------|---------|---------|
+| C1_ZeroShot     |   25.24 |   13.48 |   21.57 |
+| C2_FewShot      |   28.95 |   17.50 |   25.06 |
+| C3_CoT          |   25.80 |   14.92 |   22.02 |
+| C4_LoRA         |   48.62 |   41.74 |   47.12 |
+| Condition       | chrF++  | BERTScore-F1 | Unsupported Ent./Num. % |
+|-----------------|---------|--------------|-------------------------|
+| C1_ZeroShot     |   27.92 |        56.89 |                    7.90 |
+| C2_FewShot      |   28.99 |        59.32 |                    4.33 |
+| C3_CoT          |   28.42 |        56.63 |                    8.14 |
+| C4_LoRA         |   41.70 |        71.34 |                    7.30 |

@@ -1,0 +1,38 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.1.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+
+[INFO] Qwen/Qwen2.5-3B-Instruct: layers=36 kv_heads=2 -> KV cache 36864 bytes (36.0 KB) per token (bf16), 273 test articles
+  condition  prompt_tokens_mean  prompt_tokens_max  kv_MB_prompt_mean  kv_MB_worst_case
+C1_ZeroShot               685.0               1267               24.1              47.4
+ C2_FewShot              1785.0               2367               62.8              86.0
+     C3_CoT               750.0               1332               26.4              49.6
+    C4_LoRA               685.0               1267               24.1              47.4
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.84s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.31s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.39s/it]
+[INFO] C1_ZeroShot (base) done
+[INFO] C2_FewShot (base) done
+[INFO] C3_CoT (base) done
+[INFO] C4_LoRA (adapter) done
+[INFO] C1_ZeroShot (PeftModel, adapter off) done
+
+                                      prompt_tokens  new_tokens  seconds  prefill_s  decode_ms_per_token  tokens_per_s  kv_MB_measured  kv_MB_theory  peak_MB_above_model
+run                                                                                                                                                                      
+C1_ZeroShot (base)                            646.9       80.00     2.42       0.23                27.72         33.36           25.52         25.52               588.37
+C2_FewShot (base)                            1746.9       77.36     3.03       0.51                32.89         25.70           64.10         64.10              1587.85
+C3_CoT (base)                                 711.9       80.00     2.51       0.26                28.60         32.03           27.81         27.81               647.53
+C4_LoRA (adapter)                             646.9       56.76     2.24       0.25                35.71         25.09           24.70         24.70               588.37
+C1_ZeroShot (PeftModel, adapter off)          646.9       80.00     2.45       0.24                27.99         32.83           25.52         25.52               588.37
+
+[INFO] adapter file size: 28.2 MB

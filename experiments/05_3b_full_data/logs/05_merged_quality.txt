@@ -1,0 +1,189 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.1.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.73s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.22s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.29s/it]
+[INFO] adapter-4bit
+[INFO] Generated 8/273
+[INFO] Generated 16/273
+[INFO] Generated 24/273
+[INFO] Generated 32/273
+[INFO] Generated 40/273
+[INFO] Generated 48/273
+[INFO] Generated 56/273
+[INFO] Generated 64/273
+[INFO] Generated 72/273
+[INFO] Generated 80/273
+[INFO] Generated 87/273
+[INFO] Generated 94/273
+[INFO] Generated 101/273
+[INFO] Generated 107/273
+[INFO] Generated 113/273
+[INFO] Generated 119/273
+[INFO] Generated 124/273
+[INFO] Generated 129/273
+[INFO] Generated 134/273
+[INFO] Generated 139/273
+[INFO] Generated 144/273
+[INFO] Generated 149/273
+[INFO] Generated 154/273
+[INFO] Generated 159/273
+[INFO] Generated 163/273
+[INFO] Generated 167/273
+[INFO] Generated 171/273
+[INFO] Generated 175/273
+[INFO] Generated 179/273
+[INFO] Generated 183/273
+[INFO] Generated 187/273
+[INFO] Generated 191/273
+[INFO] Generated 195/273
+[INFO] Generated 199/273
+[INFO] Generated 203/273
+[INFO] Generated 207/273
+[INFO] Generated 211/273
+[INFO] Generated 215/273
+[INFO] Generated 219/273
+[INFO] Generated 223/273
+[INFO] Generated 227/273
+[INFO] Generated 231/273
+[INFO] Generated 235/273
+[INFO] Generated 239/273
+[INFO] Generated 243/273
+[INFO] Generated 247/273
+[INFO] Generated 251/273
+[INFO] Generated 255/273
+[INFO] Generated 259/273
+[INFO] Generated 263/273
+[INFO] Generated 266/273
+[INFO] Generated 269/273
+[INFO] Generated 272/273
+[INFO] Generated 273/273
+/opt/conda/lib/python3.10/site-packages/peft/tuners/lora/bnb.py:336: UserWarning: Merge lora module to 4-bit linear may get different generations due to rounding errors.
+  warnings.warn(
+[INFO] merged-4bit
+[INFO] Generated 8/273
+[INFO] Generated 16/273
+[INFO] Generated 24/273
+[INFO] Generated 32/273
+[INFO] Generated 40/273
+[INFO] Generated 48/273
+[INFO] Generated 56/273
+[INFO] Generated 64/273
+[INFO] Generated 72/273
+[INFO] Generated 80/273
+[INFO] Generated 87/273
+[INFO] Generated 94/273
+[INFO] Generated 101/273
+[INFO] Generated 107/273
+[INFO] Generated 113/273
+[INFO] Generated 119/273
+[INFO] Generated 124/273
+[INFO] Generated 129/273
+[INFO] Generated 134/273
+[INFO] Generated 139/273
+[INFO] Generated 144/273
+[INFO] Generated 149/273
+[INFO] Generated 154/273
+[INFO] Generated 159/273
+[INFO] Generated 163/273
+[INFO] Generated 167/273
+[INFO] Generated 171/273
+[INFO] Generated 175/273
+[INFO] Generated 179/273
+[INFO] Generated 183/273
+[INFO] Generated 187/273
+[INFO] Generated 191/273
+[INFO] Generated 195/273
+[INFO] Generated 199/273
+[INFO] Generated 203/273
+[INFO] Generated 207/273
+[INFO] Generated 211/273
+[INFO] Generated 215/273
+[INFO] Generated 219/273
+[INFO] Generated 223/273
+[INFO] Generated 227/273
+[INFO] Generated 231/273
+[INFO] Generated 235/273
+[INFO] Generated 239/273
+[INFO] Generated 243/273
+[INFO] Generated 247/273
+[INFO] Generated 251/273
+[INFO] Generated 255/273
+[INFO] Generated 259/273
+[INFO] Generated 263/273
+[INFO] Generated 266/273
+[INFO] Generated 269/273
+[INFO] Generated 272/273
+[INFO] Generated 273/273
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  2.13it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.74it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.63it/s]
+[INFO] merged-bf16
+[INFO] Generated 8/273
+[INFO] Generated 16/273
+[INFO] Generated 24/273
+[INFO] Generated 32/273
+[INFO] Generated 40/273
+[INFO] Generated 48/273
+[INFO] Generated 56/273
+[INFO] Generated 64/273
+[INFO] Generated 72/273
+[INFO] Generated 80/273
+[INFO] Generated 87/273
+[INFO] Generated 94/273
+[INFO] Generated 101/273
+[INFO] Generated 107/273
+[INFO] Generated 113/273
+[INFO] Generated 119/273
+[INFO] Generated 124/273
+[INFO] Generated 129/273
+[INFO] Generated 134/273
+[INFO] Generated 139/273
+[INFO] Generated 144/273
+[INFO] Generated 149/273
+[INFO] Generated 154/273
+[INFO] Generated 159/273
+[INFO] Generated 163/273
+[INFO] Generated 167/273
+[INFO] Generated 171/273
+[INFO] Generated 175/273
+[INFO] Generated 179/273
+[INFO] Generated 183/273
+[INFO] Generated 187/273
+[INFO] Generated 191/273
+[INFO] Generated 195/273
+[INFO] Generated 199/273
+[INFO] Generated 203/273
+[INFO] Generated 207/273
+[INFO] Generated 211/273
+[INFO] Generated 215/273
+[INFO] Generated 219/273
+[INFO] Generated 223/273
+[INFO] Generated 227/273
+[INFO] Generated 231/273
+[INFO] Generated 235/273
+[INFO] Generated 239/273
+[INFO] Generated 243/273
+[INFO] Generated 247/273
+[INFO] Generated 251/273
+[INFO] Generated 255/273
+[INFO] Generated 259/273
+[INFO] Generated 263/273
+[INFO] Generated 266/273
+[INFO] Generated 269/273
+[INFO] Generated 272/273
+[INFO] Generated 273/273
+
+     variant   n  rouge1  rouge2  rougeL  unsupported_pct  same_as_adapter_4bit
+adapter-4bit 273   50.54   43.21   48.64             5.63                  1.00
+ merged-4bit 273   31.73   18.72   27.35             2.39                  0.00
+ merged-bf16 273   49.84   42.39   47.93             5.57                  0.42

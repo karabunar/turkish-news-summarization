@@ -1,0 +1,2 @@
+model,max_new_tokens,n,rouge1,rouge2,rougeL,chrf_pp,bertscore_f1,unsupported_pct,with_marker,mean_words
+Qwen/Qwen2.5-1.5B-Instruct,160,273,24.5295,13.9484,20.8135,29.4654,56.0985,6.6359,239,32.7875

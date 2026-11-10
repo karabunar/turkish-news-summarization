@@ -1,0 +1,12 @@
+.cache/
+__pycache__/
+.pytest_cache/
+.hypothesis/
+*.zip
+.~lock.*
+# model weights live on the Hugging Face Hub, not in git
+*.safetensors
+*.bin
+*.pt
+checkpoint-*/
+outputs_*/

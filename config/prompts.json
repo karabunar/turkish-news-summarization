@@ -1,0 +1,12 @@
+{
+  "_note": "All prompts are in Turkish. The user turn is '<instruction>\\n\\n<article>' (C3: '<persona>\\n<format hint>\\n\\n<article>'). Source of truth: domain/services/prompt_builder.py; tests/test_config_files.py checks that this file matches it.",
+  "c1_c4_instruction": "Aşağıdaki haber metnini 1-2 cümle ile anlaşılır şekilde özetle:",
+  "c2_few_shot": "Multi-turn chat with 7 messages: for each of the 3 examples a user turn '<c1_c4_instruction>\\n\\n<example article>' followed by an assistant turn with the example's reference summary, then the user turn with the test article. The examples are random training articles (ids 9306bae92853156a, c471a6ba04edb934, 1210ec7e2dd698e6) that are not among the fine-tuning articles.",
+  "c3_persona": "Sen uzman bir haber editörüsün. Haber metnindeki ana olayı, kişileri ve sonucu adım adım analiz et, ardından nihai özeti yaz:",
+  "c3_format_hint": "Analizi kısa tut (en fazla 3 kısa madde). Cevabın son satırı 'Nihai özet:' ile başlamalı ve 1-2 cümle içermelidir.",
+  "c3_final_summary_marker": "Nihai özet:",
+  "c4_prompt": "Same as c1_c4_instruction (the fine-tuned model is evaluated with the zero-shot prompt). Training conversations are the same prompt plus the reference summary as the assistant turn; the loss is computed on the assistant tokens only.",
+  "max_article_chars": 2500,
+  "max_few_shot_example_chars": 800,
+  "clipping": "Articles are cut at the last whole word within the character limit; the same limits apply to all conditions."
+}

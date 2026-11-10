@@ -1,0 +1,42 @@
+== Own ROUGE (mean %, R-1 / R-2 / R-L) ==
+C1_ZeroShot   25.24  13.48  21.57
+C2_FewShot    28.95  17.50  25.06
+C3_CoT        25.80  14.92  22.02
+C4_LoRA       48.62  41.74  47.12
+
+== Paired bootstrap on per-sample ROUGE-L (diff, 95% CI) ==
+C4_LoRA-C1_ZeroShot: +25.6 [21.9, 29.3]
+C4_LoRA-C2_FewShot: +22.1 [18.5, 25.8]
+C4_LoRA-C3_CoT: +25.1 [21.5, 28.9]
+C2_FewShot-C1_ZeroShot: +3.5 [2.0, 5.1]
+C3_CoT-C1_ZeroShot: +0.5 [-0.9, 1.8]
+
+== A. Extractive vs abstractive ==
+Ref          words= 30.3  3gram-in-article=0.617  novel-unigrams=0.187  ends-with-'...'=85
+C1_ZeroShot  words= 25.2  3gram-in-article=0.240  novel-unigrams=0.365  ends-with-'...'=0
+C2_FewShot   words= 22.8  3gram-in-article=0.414  novel-unigrams=0.215  ends-with-'...'=0
+C3_CoT       words= 25.7  3gram-in-article=0.307  novel-unigrams=0.327  ends-with-'...'=0
+C4_LoRA      words= 20.4  3gram-in-article=0.758  novel-unigrams=0.117  ends-with-'...'=72
+
+== B. Entities / language drift ==
+C1_ZeroShot  samples with >=1 unsupported entity/number:  53   CJK outputs: 12
+C2_FewShot   samples with >=1 unsupported entity/number:  32   CJK outputs: 2
+C3_CoT       samples with >=1 unsupported entity/number:  65   CJK outputs: 3
+C4_LoRA      samples with >=1 unsupported entity/number:  38   CJK outputs: 0
+
+== C. Degenerate generation (raw outputs) ==
+C1_ZeroShot  trigram loops: 6  repeated sentences: 3  no terminal punctuation: 236
+C2_FewShot   trigram loops: 6  repeated sentences: 5  no terminal punctuation: 136
+C3_CoT       trigram loops: 4  repeated sentences: 3  no terminal punctuation: 255   no 'Nihai özet' marker: 42
+C4_LoRA      trigram loops: 4  repeated sentences: 1  no terminal punctuation: 63
+
+== Leakage subsets: mean own ROUGE-L (%) ==
+                        C1_ZeroShot   C2_FewShot       C3_CoT      C4_LoRA
+all 273                        21.6         25.1         22.0         47.1
+flagged (37)                   21.4         28.7         21.1         50.7
+template (3)                    0.0          0.0          0.0        100.0
+same-event (33)                23.8         31.6         23.2         47.2
+topical (1)                     5.3         18.6         15.2         17.8
+without template               21.8         25.3         22.3         46.5
+without same-event             21.3         24.2         21.9         47.1
+without all flagged            21.6         24.5         22.2         46.6

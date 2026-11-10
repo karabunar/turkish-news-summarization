@@ -1,0 +1,79 @@
+ Container turkish-news-summarization-summarizer-run-4907761fee22 Creating 
+ Container turkish-news-summarization-summarizer-run-4907761fee22 Created 
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.1.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+[INFO] C3 with max_new_tokens=160 on 273 test articles
+[INFO] Generated 8/273
+[INFO] Generated 16/273
+[INFO] Generated 24/273
+[INFO] Generated 32/273
+[INFO] Generated 40/273
+[INFO] Generated 48/273
+[INFO] Generated 56/273
+[INFO] Generated 64/273
+[INFO] Generated 71/273
+[INFO] Generated 78/273
+[INFO] Generated 85/273
+[INFO] Generated 91/273
+[INFO] Generated 97/273
+[INFO] Generated 103/273
+[INFO] Generated 109/273
+[INFO] Generated 114/273
+[INFO] Generated 119/273
+[INFO] Generated 124/273
+[INFO] Generated 129/273
+[INFO] Generated 134/273
+[INFO] Generated 138/273
+[INFO] Generated 142/273
+[INFO] Generated 146/273
+[INFO] Generated 150/273
+[INFO] Generated 154/273
+[INFO] Generated 158/273
+[INFO] Generated 162/273
+[INFO] Generated 166/273
+[INFO] Generated 170/273
+[INFO] Generated 174/273
+[INFO] Generated 178/273
+[INFO] Generated 182/273
+[INFO] Generated 186/273
+[INFO] Generated 190/273
+[INFO] Generated 194/273
+[INFO] Generated 198/273
+[INFO] Generated 202/273
+[INFO] Generated 206/273
+[INFO] Generated 210/273
+[INFO] Generated 214/273
+[INFO] Generated 218/273
+[INFO] Generated 222/273
+[INFO] Generated 226/273
+[INFO] Generated 230/273
+[INFO] Generated 234/273
+[INFO] Generated 238/273
+[INFO] Generated 242/273
+[INFO] Generated 246/273
+[INFO] Generated 249/273
+[INFO] Generated 252/273
+[INFO] Generated 255/273
+[INFO] Generated 258/273
+[INFO] Generated 261/273
+[INFO] Generated 264/273
+[INFO] Generated 267/273
+[INFO] Generated 270/273
+[INFO] Generated 273/273
+/opt/conda/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+                     model  max_new_tokens   n  rouge1  rouge2  rougeL  chrf_pp  bertscore_f1  unsupported_pct  with_marker  mean_words
+Qwen/Qwen2.5-1.5B-Instruct             160 273   24.53   13.95   20.81    29.47          56.1             6.64          239       32.79

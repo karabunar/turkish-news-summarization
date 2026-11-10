@@ -1,0 +1,21 @@
+services:
+  summarizer:
+    build: .
+    image: turkish-news-summarization
+    container_name: turkish-news-summarization
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      - HF_TOKEN=${HF_TOKEN:-}
+      - BASE_MODEL=${BASE_MODEL:-Qwen/Qwen2.5-1.5B-Instruct}
+    shm_size: "8gb"
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

@@ -1,0 +1,44 @@
+[INFO] Loading dataset (seed=42)
+[INFO] train=16 test=8
+[INFO] Loading Qwen/Qwen2.5-1.5B-Instruct in 4-bit NF4
+[INFO] Running C1_ZeroShot
+[INFO] Generated 4/8
+[INFO] Generated 8/8
+[INFO] Running C2_FewShot
+[INFO] Generated 4/8
+[INFO] Generated 8/8
+[INFO] Running C3_CoT
+[INFO] Generated 4/8
+[INFO] Generated 8/8
+
+Map:   0%|          | 0/16 [00:00<?, ? examples/s]Map: 100%|██████████| 16/16 [00:00<00:00, 954.48 examples/s]
+  0%|          | 0/3 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+/opt/conda/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 33%|███▎      | 1/3 [00:11<00:22, 11.20s/it] 67%|██████▋   | 2/3 [00:22<00:11, 11.35s/it]100%|██████████| 3/3 [00:34<00:00, 11.51s/it]                                             {'train_runtime': 34.3606, 'train_samples_per_second': 1.397, 'train_steps_per_second': 0.087, 'train_loss': 1.1004022757212322, 'epoch': 3.0}
+100%|██████████| 3/3 [00:34<00:00, 11.51s/it]100%|██████████| 3/3 [00:34<00:00, 11.45s/it]
+[INFO] LoRA adapter saved to /tmp/lora_smoke
+[INFO] Running C4_LoRA
+[INFO] Generated 4/8
+[INFO] Generated 8/8
+Downloading builder script: 0.00B [00:00, ?B/s]Downloading builder script: 9.01kB [00:00, 16.5MB/s]
+Downloading builder script: 0.00B [00:00, ?B/s]Downloading builder script: 7.95kB [00:00, 39.5MB/s]
+[INFO] Predictions exported to /tmp/smoke.csv
+
+| Condition       | ROUGE-1 | ROUGE-2 | ROUGE-L |
+|-----------------|---------|---------|---------|
+| C1_ZeroShot     |   33.84 |   19.59 |   27.92 |
+| C2_FewShot      |   39.74 |   26.91 |   36.78 |
+| C3_CoT          |   38.15 |   28.11 |   33.28 |
+| C4_LoRA         |   36.65 |   25.12 |   32.23 |
+/opt/conda/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+
+Supplementary metrics (chrF++, BERTScore with Turkish BERT, unsupported entities/numbers):
+| Condition       | chrF++  | BERTScore-F1 | Unsupported Ent./Num. % |
+|-----------------|---------|--------------|-------------------------|
+| C1_ZeroShot     |   31.90 |        62.22 |                    2.33 |
+| C2_FewShot      |   37.58 |        64.12 |                    2.17 |
+| C3_CoT          |   36.57 |        63.91 |                    4.69 |
+| C4_LoRA         |   35.71 |        63.98 |                    1.89 |
+====================================================================================================

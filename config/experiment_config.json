@@ -1,0 +1,55 @@
+{
+  "_note": "Configuration of the reported runs. Source of truth is the code (main.py, infrastructure/hf_model_adapter.py, domain/services/*); tests/test_config_files.py checks the values marked as checked against the source.",
+  "model": {
+    "base": "Qwen/Qwen2.5-1.5B-Instruct",
+    "larger_model_run": "Qwen/Qwen2.5-3B-Instruct",
+    "quantization": {"load_in_4bit": true, "bnb_4bit_quant_type": "nf4", "bnb_4bit_use_double_quant": true, "bnb_4bit_compute_dtype": "bfloat16"},
+    "tokenizer_padding_side": "left"
+  },
+  "data": {
+    "dataset": "ahmetyaylalioglu/turkish-news-summarization-collection",
+    "columns": {"article": "text", "reference_summary": "target_summary"},
+    "rows_with_empty_text_or_summary": "dropped",
+    "shuffle": "datasets shuffle with the seed below, per split; a smaller n takes a prefix of the same shuffle",
+    "seed": 42,
+    "n_few_shot": 3,
+    "main_run_R2": {"train_for_lora": 4907, "few_shot_examples_from_train": 3, "test": 273, "validation_use": "decoding choice only"},
+    "earlier_run_R1": {"train_for_lora": 1000, "test": 200},
+    "model_size_run_R3": {"train_for_lora": 4907, "test": 273, "validation_use": "epoch with the lowest validation loss is kept"}
+  },
+  "decoding": {
+    "strategy": "greedy (do_sample=false)",
+    "max_new_tokens": 80,
+    "batch_size": 8,
+    "max_batch_tokens": 4096,
+    "parser_max_sentences": 2,
+    "parser": "removes labels and markers, drops repeated sentences; for C3 keeps only the text after the last 'Nihai özet:' marker",
+    "same_for_all_conditions": true
+  },
+  "qlora": {
+    "lora": {"r": 16, "lora_alpha": 32, "lora_dropout": 0.05, "bias": "none", "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj"], "task_type": "CAUSAL_LM"},
+    "training": {"num_train_epochs": 3, "per_device_train_batch_size": 2, "gradient_accumulation_steps": 8, "learning_rate": 0.0002, "lr_scheduler_type": "cosine", "warmup_ratio": 0.05, "logging_steps": 5, "bf16": true, "gradient_checkpointing": true, "optim": "paged_adamw_8bit", "max_seq_length": 2048, "packing": false, "report_to": "none"},
+    "effective_batch_size": 16,
+    "trainer": "trl SFTTrainer with DataCollatorForCompletionOnlyLM (response template '<|im_start|>assistant\\n')",
+    "validation_epoch_selection": {"used_in": "R3", "eval_strategy": "epoch", "save_strategy": "epoch", "save_total_limit": 2, "load_best_model_at_end": true, "metric_for_best_model": "eval_loss"}
+  },
+  "metrics": {
+    "rouge": "Hugging Face evaluate 'rouge' with a Unicode-aware Turkish tokenizer, plain mean of per-sample scores (no bootstrap aggregator)",
+    "chrf": {"implementation": "evaluate 'chrf' (sacrebleu)", "word_order": 2},
+    "bertscore": {"model": "dbmdz/bert-base-turkish-cased", "num_layers": 9, "lang": "tr", "rescale_with_baseline": false},
+    "unsupported_entity_rate": "capitalized non-sentence-initial words and digit groups of a prediction that do not occur in the article (exact token match; words of 4+ letters also match inflected forms by prefix)",
+    "significance": "paired bootstrap, 5000 resamples, seed 42, on per-sample ROUGE-L"
+  },
+  "runs": [
+    {"id": "R1", "model": "Qwen/Qwen2.5-1.5B-Instruct", "command": "python main.py", "output": "experiments/04_final_1000train_200test/"},
+    {"id": "R2", "model": "Qwen/Qwen2.5-1.5B-Instruct", "command": "python main.py --all-data   (./run_full.sh)", "output": "outputs/"},
+    {"id": "R3", "model": "Qwen/Qwen2.5-3B-Instruct", "command": "python main.py --all-data --use-validation --model Qwen/Qwen2.5-3B-Instruct --output-dir experiments/05_3b_full_data", "output": "experiments/05_3b_full_data/"}
+  ],
+  "ablations": {
+    "decoding": "python -m scripts.decode_ablation (greedy/beam4, 80/120 tokens, 2/3 sentences; chosen on validation)",
+    "c3_token_budget": "python -m scripts.cot_budget (C3 only, 160 new tokens)",
+    "few_shot_sensitivity": "python -m scripts.fewshot_sensitivity --n-sets 5 (seed 123 for the triples)",
+    "batch_sensitivity": "python -m scripts.batch_sensitivity"
+  },
+  "environment": {"docker_image": "pytorch/pytorch:2.2.1-cuda12.1-cudnn8-devel", "pinned_in": "requirements.txt (transformers 4.44.2, peft 0.12.0, trl 0.9.6, bitsandbytes 0.43.3, datasets 2.21.0, evaluate 0.4.2, bert_score 0.3.13)", "gpu": "1x NVIDIA RTX A4000 16 GB"}
+}

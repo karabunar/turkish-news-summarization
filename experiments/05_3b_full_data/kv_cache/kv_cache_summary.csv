@@ -1,0 +1,6 @@
+run,prompt_tokens,new_tokens,seconds,prefill_s,decode_ms_per_token,tokens_per_s,kv_MB_measured,kv_MB_theory,peak_MB_above_model
+C1_ZeroShot (base),646.9,80.0,2.42,0.23,27.72,33.36,25.52,25.52,588.37
+C2_FewShot (base),1746.9,77.36,3.03,0.51,32.89,25.7,64.1,64.1,1587.85
+C3_CoT (base),711.9,80.0,2.51,0.26,28.6,32.03,27.81,27.81,647.53
+C4_LoRA (adapter),646.9,56.76,2.24,0.25,35.71,25.09,24.7,24.7,588.37
+"C1_ZeroShot (PeftModel, adapter off)",646.9,80.0,2.45,0.24,27.99,32.83,25.52,25.52,588.37

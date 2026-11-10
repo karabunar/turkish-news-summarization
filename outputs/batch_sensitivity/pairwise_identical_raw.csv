@@ -1,0 +1,22 @@
+a,b,identical,n
+"A1 (200, b8)","A2 (200, b8, repeat)",200,200
+"A1 (200, b8)","B (273, b8)",88,200
+"A1 (200, b8)","C (200, b4)",113,200
+"A1 (200, b8)","D (200, b1)",49,200
+"A1 (200, b8)",stored 1000/200 run,200,200
+"A1 (200, b8)",stored full run,88,200
+"A2 (200, b8, repeat)","B (273, b8)",88,200
+"A2 (200, b8, repeat)","C (200, b4)",113,200
+"A2 (200, b8, repeat)","D (200, b1)",49,200
+"A2 (200, b8, repeat)",stored 1000/200 run,200,200
+"A2 (200, b8, repeat)",stored full run,88,200
+"B (273, b8)","C (200, b4)",82,200
+"B (273, b8)","D (200, b1)",49,200
+"B (273, b8)",stored 1000/200 run,88,200
+"B (273, b8)",stored full run,200,200
+"C (200, b4)","D (200, b1)",52,200
+"C (200, b4)",stored 1000/200 run,113,200
+"C (200, b4)",stored full run,82,200
+"D (200, b1)",stored 1000/200 run,49,200
+"D (200, b1)",stored full run,49,200
+stored 1000/200 run,stored full run,88,200

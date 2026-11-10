@@ -1,0 +1,33 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.1.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.86it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.73it/s]
+[INFO] 4bit/base: decode 27.44 ms/token
+[INFO] 4bit/adapter: decode 36.27 ms/token
+/opt/conda/lib/python3.10/site-packages/peft/tuners/lora/bnb.py:336: UserWarning: Merge lora module to 4-bit linear may get different generations due to rounding errors.
+  warnings.warn(
+[INFO] 4bit/merged: decode 28.35 ms/token
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.98it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.63it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.51it/s]
+[INFO] bf16/base: decode 29.75 ms/token
+[INFO] bf16/adapter: decode 36.03 ms/token
+[INFO] bf16/merged: decode 30.10 ms/token
+
+precision variant  prefill_s  decode_ms_per_token  decode_ms_sd  gpu_weights_MB  same_as_adapter
+     4bit    base      0.233               27.442         1.136        2543.899              NaN
+     4bit adapter      0.257               36.273         1.181        2572.024            1.000
+     4bit  merged      0.255               28.353         0.821        2543.899            0.000
+     bf16    base      0.188               29.750         0.805        6578.624              NaN
+     bf16 adapter      0.209               36.026         1.409        6606.749            1.000
+     bf16  merged      0.194               30.096         0.993        6578.624            0.733

@@ -1,0 +1,31 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.1.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+[INFO] 4bit/base: decode 18.67 ms/token
+[INFO] 4bit/adapter: decode 26.81 ms/token
+/opt/conda/lib/python3.10/site-packages/peft/tuners/lora/bnb.py:336: UserWarning: Merge lora module to 4-bit linear may get different generations due to rounding errors.
+  warnings.warn(
+[INFO] 4bit/merged: decode 18.80 ms/token
+[INFO] bf16/base: decode 16.22 ms/token
+[INFO] bf16/adapter: decode 20.10 ms/token
+[INFO] bf16/merged: decode 17.23 ms/token
+
+precision variant  prefill_s  decode_ms_per_token  decode_ms_sd  gpu_weights_MB  same_as_adapter
+     4bit    base      0.080               18.674         0.141        1555.082              NaN
+     4bit adapter      0.114               26.811         0.224        1571.707            1.000
+     4bit  merged      0.118               18.801         0.197        1555.957            0.000
+     bf16    base      0.088               16.223         0.691        3401.436              NaN
+     bf16 adapter      0.097               20.103         2.046        3418.061            1.000
+     bf16  merged      0.094               17.235         0.552        3401.436            0.733

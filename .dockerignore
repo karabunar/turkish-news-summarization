@@ -1,0 +1,10 @@
+.cache
+__pycache__
+.pytest_cache
+.hypothesis
+*.zip
+.~lock.*
+outputs
+experiments
+report
+docs
