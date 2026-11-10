@@ -10,7 +10,7 @@ This repo compares four conditions on **Qwen2.5-1.5B-Instruct** (4-bit NF4), eva
 | **C3 Persona + CoT** | "Expert news editor" persona, short step-by-step analysis, then `Nihai özet:` |
 | **C4 QLoRA** | LoRA (r=16, α=32, q/k/v/o) trained on 4907 article–summary pairs, evaluated with the zero-shot prompt |
 
-Trained adapter: **[{{HF_REPO}}](https://huggingface.co/{{HF_REPO}})**
+Trained adapter: **[karabunar/qwen2.5-1.5b-turkish-news-summarization-qlora](https://huggingface.co/karabunar/qwen2.5-1.5b-turkish-news-summarization-qlora)**
 
 ## Results
 
@@ -54,7 +54,7 @@ bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
                          bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=torch.bfloat16)
 tok = AutoTokenizer.from_pretrained(base)
 model = AutoModelForCausalLM.from_pretrained(base, quantization_config=bnb, device_map="auto")
-model = PeftModel.from_pretrained(model, "{{HF_REPO}}")  # keep it unmerged (see findings)
+model = PeftModel.from_pretrained(model, "karabunar/qwen2.5-1.5b-turkish-news-summarization-qlora")  # keep it unmerged (see findings)
 
 article = "..."  # Turkish news text (the experiments clip it to 2500 characters)
 messages = [{"role": "user", "content": f"Aşağıdaki haber metnini 1-2 cümle ile anlaşılır şekilde özetle:\n\n{article}"}]
@@ -80,7 +80,7 @@ Useful flags: `--model Qwen/Qwen2.5-3B-Instruct`, `--batch-size 4` (if OOM), `--
 
 To skip training and reuse the published adapter:
 ```bash
-hf download {{HF_REPO}} --local-dir outputs/lora_adapter
+hf download karabunar/qwen2.5-1.5b-turkish-news-summarization-qlora --local-dir outputs/lora_adapter
 python main.py --all-data --skip-training
 ```
 
